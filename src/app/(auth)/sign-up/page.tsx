@@ -9,8 +9,9 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { z } from "zod";
+//import { z } from "zod";
 import { TauthCredentialsValidator, AuthCredentialsValidator } from "@/lib/validators/account-credentials-validator";
+import { trpc } from "@/trpc/client";
 
 const Page = () => {
 
@@ -21,6 +22,9 @@ const Page = () => {
   } = useForm<TauthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   });
+
+  const { data } = trpc.anyApiRoute.useQuery()
+  console.log(data);
 
   const onSubmit = ({email, password}:TauthCredentialsValidator) => {
 
