@@ -7,10 +7,13 @@ const app = express();
 
 const PORT = Number(process.env.PORT) || 3000
 
-const createContext = ({req, res}: trpcExpress.CreateExpressContextOptions) => ({
+const createContext = ({
     req,
     res,
-})
+  }: trpcExpress.CreateExpressContextOptions) => ({
+    req,
+    res,
+  })
 
 const start = async () => {
     const payload = await getPayloadClient({

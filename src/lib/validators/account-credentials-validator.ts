@@ -10,4 +10,4 @@ export const AuthCredentialsValidator = z.object({
       .min(5, { message: "password must be atleast 5 characters long" }),
   });
 
-export type TauthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>;
+export type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>;
